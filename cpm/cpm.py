@@ -146,7 +146,7 @@ CLASS_CONFIGS = {
         "IONS": MPIONS,
         "ADD_LABELS_FN": mu.add_MP_labels,
         "LABEL_COL": "CyanopeptideClass_MP",
-        "LIB_CLASS_FILTER": "Micropeptin",
+        "LIB_CLASS_FILTER": "Cyanopeptolin",
     },
     "MG": {
         "IONS": MGIONS,
@@ -475,7 +475,7 @@ def run_class_pipeline(
     # 4) Load MS1 points
     # ------------------------------------------------------------
     if ms1_points_file is None:
-        print("No MS1 points file provided. Automatically extracting MS1...")
+        print("No MS1 points file provided. Automatically extracting MS1 from files...")
 
         ms1_points_file = build_ms1_points(
             files,
