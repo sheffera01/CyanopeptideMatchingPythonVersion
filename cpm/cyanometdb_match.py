@@ -153,7 +153,7 @@ def match_ms1_to_lib(
     *,
     ms1_mz_col: str = MS1_MZ_COL,
     lib_mz_col: str = LIB_MZ_COL,
-    tol_da: float = 0.05,
+    tol_da: float = 0.06,
 ) -> pd.DataFrame:
     """
     Match MS1 features to library entries based on precursor m/z within ± tol_da.
