@@ -86,7 +86,7 @@ ION_TO_LABEL = {
     213.0870: "MC Mdha 213.0870",
     446.2286: "MC adda (163) + Glu + Mdha + Ala",
     553.3093: "MC Adha + Ala + Leu + MeAsp + Arg",
-    599.3552: "MC Adda + Arg + Glu 599.3552",
+    599.3552: "MC [MeAsp-Arg-Adda + H]+, [Asp-Har-Adda + H]+, or [Arg-Adda-Glu + H]+ 599.3552",
 
     112.0964: "AR Choi-h2o 112.0964",
     140.1066: "AR Choi 140.1066",
