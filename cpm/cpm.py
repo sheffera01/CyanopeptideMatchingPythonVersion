@@ -987,7 +987,7 @@ def run_pipeline_notebook(
     ref_tol: float = 0.01,
     do_blank_filter: bool = True,
     do_batch_correct: bool = True,
-    tol_da: float = 0.1,
+    tol_da: float = 0.05,
     mz_round: int | None = None,
     intensity_min: float = 0.0,
     assume_time_unit: str = "min",
@@ -1164,7 +1164,7 @@ def main():
     parser.add_argument("--blank-filter", action="store_true")
     parser.add_argument("--batch-correct", action="store_true")
 
-    parser.add_argument("--tol-da", type=float, default=0.1)
+    parser.add_argument("--tol-da", type=float, default=0.05)
 
     parser.add_argument("--extract-ms1", action="store_true")
     parser.add_argument("--mz-round", type=int, default=None)
