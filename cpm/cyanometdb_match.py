@@ -415,6 +415,38 @@ def plot_matched_tiles(
     return out_png
 
 
+
+# --------------------
+# Matched subset helpers
+# --------------------
+def build_matches_2_or_more_frag_sheet(matched_only: pd.DataFrame) -> tuple[pd.DataFrame, list[str]]:
+    """
+    Build a table of matched compounds with >=2 diagnostic has_* flags.
+    """
+    if matched_only is None or matched_only.empty:
+        return pd.DataFrame(), []
+
+    df = matched_only.copy()
+
+    bool_cols = [
+        c for c in df.columns
+        if str(c).strip().startswith("has_")
+    ]
+
+    if not bool_cols:
+        return pd.DataFrame(), []
+
+    df[bool_cols] = df[bool_cols].fillna(False).astype(bool)
+    df["n_diagnostic"] = df[bool_cols].sum(axis=1)
+
+    matched_2_or_more_frag = (
+        df.loc[df["n_diagnostic"] >= 2]     #edit this if you want more matched fragments. Note: different collision energies will results in different number of fragmentations. Use higher collision energy if you are increasing fragments. 
+        .sort_values(["n_diagnostic", "merged_precmz"], ascending=[False, True])
+        .copy()
+    )
+
+    return matched_2_or_more_frag, bool_cols
+
 # --------------------
 # Output writer
 # --------------------
@@ -438,18 +470,46 @@ def write_outputs(
 
     paths = {}
 
+    unknowns, bool_cols = build_unknowns_sheet(matches)
+    matched_2_or_more_frag, _ = build_matches_2_or_more_frag_sheet(matched_only)
+
+    # Write all 3 CSV outputs to mirror the Excel tabs
     csv_path = os.path.join(out_dir_ts, f"cyanometdb_matches_{ts}.csv")
     matched_only.to_csv(csv_path, index=False)
-    print(f"Saved: {os.path.abspath(csv_path)} (rows: {len(matched_only)})")
+    print(f"Saved matches CSV: {os.path.abspath(csv_path)} (rows: {len(matched_only)})")
     paths["matches_csv"] = csv_path
 
-    unknowns, bool_cols = build_unknowns_sheet(matches)
+    matched_2_or_more_frag_csv = os.path.join(out_dir_ts, f"cyanometdb_matches_2_or_more_frag_diag_{ts}.csv")
+    if not matched_2_or_more_frag.empty:
+        matched_2_or_more_frag.to_csv(matched_2_or_more_frag_csv, index=False)
+    else:
+        pd.DataFrame({"note": ["no matched compounds with >=2 diagnostic ions"]}).to_csv(
+            matched_2_or_more_frag_csv, index=False
+        )
+    print(f"Saved matches >=2 diagnostic CSV: {os.path.abspath(matched_2_or_more_frag_csv)} (rows: {len(matched_2_or_more_frag)})")
+    paths["matches_2_or_more_frag_csv"] = matched_2_or_more_frag_csv
+
+    unknowns_csv = os.path.join(out_dir_ts, f"cyanometdb_unknowns_2_or_more_frag_diag_{ts}.csv")
+    if not unknowns.empty:
+        unknowns.to_csv(unknowns_csv, index=False)
+    else:
+        pd.DataFrame({"note": ["no unknowns with >=2 diagnostic ions"]}).to_csv(
+            unknowns_csv, index=False
+        )
+    print(f"Saved unknowns >=2 diagnostic CSV: {os.path.abspath(unknowns_csv)} (rows: {len(unknowns)})")
+    paths["unknowns_csv"] = unknowns_csv
 
     if write_excel:
         excel_path = os.path.join(out_dir_ts, f"cyanometdb_matches_{ts}.xlsx")
         engine = _excel_engine()
         with pd.ExcelWriter(excel_path, engine=engine) as xw:
             matched_only.to_excel(xw, index=False, sheet_name="matches")
+            if not matched_2_or_more_frag.empty:
+                matched_2_or_more_frag.to_excel(xw, index=False, sheet_name="matches_>=2diag")
+            else:
+                pd.DataFrame({"note": ["no matched compounds with >=2 diagnostic ions"]}).to_excel(
+                    xw, index=False, sheet_name="matches_>=2diag"
+                )
             if not unknowns.empty:
                 unknowns.to_excel(xw, index=False, sheet_name="unknowns_>=2diag")
             else:
@@ -460,11 +520,6 @@ def write_outputs(
         paths["excel"] = excel_path
 
     if not unknowns.empty:
-        unk_csv = os.path.join(out_dir_ts, f"unknown_features_with_scans_{ts}.csv")
-        unknowns.to_csv(unk_csv, index=False)
-        print(f"Exported unknown features with scans: {os.path.abspath(unk_csv)} (rows: {len(unknowns)})")
-        paths["unknowns_csv"] = unk_csv
-
         if make_heatmap and _HAS_SNS and bool_cols:
             matrix = unknowns.set_index("row_label")[bool_cols]
             if not matrix.empty:
