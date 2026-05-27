@@ -45,8 +45,8 @@ def _filter_ms2_df_to_kept_features(
     ms2_df: pd.DataFrame,
     kept_feats: Optional[pd.DataFrame],
     *,
-    mz_tol_da: float = 0.2,
-    rt_tol_min: float = 0.3,
+    mz_tol_da: float = 0.05,
+    rt_tol_min: float = 0.2,
     ms2_precursor_col: str = "precmz",
     ms2_rt_col: str = "rt",
 ) -> pd.DataFrame:
@@ -88,8 +88,8 @@ def load_file(
     input_file: str,
     *,
     kept_feature_table: Optional[pd.DataFrame] = None,
-    mz_tol_da: float = 0.2,
-    rt_tol_min: float = 0.3,
+    mz_tol_da: float = 0.05,
+    rt_tol_min: float = 0.2,
     blank_files: Optional[set] = None,
 ):
 
@@ -131,8 +131,8 @@ def load_files(
     input_files: List[str],
     *,
     kept_feature_table: Optional[pd.DataFrame] = None,
-    mz_tol_da: float = 0.2,
-    rt_tol_min: float = 0.3,
+    mz_tol_da: float = 0.05,
+    rt_tol_min: float = 0.2,
     blank_files: Optional[set] = None,
 ) -> Dict[str, object]:
 
