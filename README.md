@@ -31,7 +31,6 @@ pip install --upgrade pip setuptools wheel
 pip install --no-cache-dir --force-reinstall \
 git+https://github.com/sheffera01/CyanopeptideMatchingPythonVersion.git@package
 
-#-----------------------------------------------------------------------------------------------
 # For Future Logins
 source ~/.bashrc \
 micromamba activate cpm
@@ -40,7 +39,6 @@ micromamba activate cpm
 pip install --no-cache-dir --force-reinstall \
 git+https://github.com/sheffera01/CyanopeptideMatchingPythonVersion.git@package
 
-#-----------------------------------------------------------------------------------------------
 # To run: 
 cpm \
   --class-tag MC \ #can do MC MP AB AR MG or ALL \
@@ -49,8 +47,48 @@ cpm \
   --metadata /path_to__metadata/metadata.csv \ #path to metadata  \
   --output-root /path_to_result_output/results \ #path to output folder \
   --blank-filter \ #remove if not needed \
-  --batch-correct #remove if not needed
+  --batch-correct #remove if not needed \
+  
+#--------------------------------------------------------------------------------------------------
+## PC
+Open PowerShell
+# Install micromamba once
+cd $HOME \
+Invoke-WebRequest -Uri https://micro.mamba.pm/api/micromamba/win-64/latest -OutFile micromamba.tar.bz2 \
+tar xf micromamba.tar.bz2 \
+.\Library\bin\micromamba.exe shell init -s powershell -r "$HOME\micromamba" \
 
+Close PowerShell and reopen it. 
+# Create environment
+micromamba create -n cpm python=3.13 pip -c conda-forge -y
+
+# Activate it
+micromamba activate cpm
+
+# Check Python version (should be 3.13.x)
+python --version
+
+# Upgrade install tools
+pip install --upgrade pip setuptools wheel
+
+# Install CPM package
+pip install --no-cache-dir --force-reinstall "git+https://github.com/sheffera01/CyanopeptideMatchingPythonVersion.git@package"
+
+#-----------------------------------------------------------------------------------------------
+# For Future Logins
+Open PowerShell and run:
+micromamba activate cpm
+
+# For newest version pulling from GitHub:
+pip install --no-cache-dir --force-reinstall "git+https://github.com/sheffera01/CyanopeptideMatchingPythonVersion.git@package"
+
+#-----------------------------------------------------------------------------------------------
+# To run: 
+cpm ` --class-tag MC ` --files ` "C:\path_to_file\filename.mzML" ` "C:\path_to_file\filename2.mzML" ` --metadata "C:\path_to_metadata\metadata.csv" ` --output-root "C:\path_to_output\results" ` --blank-filter ` --batch-correct
+# Options:
+--class tag: MC, AP, AB, AR, MG, or ALL
+--blank-filter: optional. Remove if not needed
+--batch-correct: optional. Remove if not needed. 
 #-----------------------------------------------------------------------------------------------
 ### Prerequisites
 
@@ -71,4 +109,3 @@ MS/MS diagnostic ion tolerance fragment (massql_utils.py --> tol_mz) \
 ## Acknowledgements 
 
 *    We are grateful for support from the National Institute of Environmental Health Sciences (NIEHS) of the NIH under award numbers 5P01ES028939-02 and R21ES033758 (M.J.B.) and the National Science Foundation (NSF) under award number OCE-1840715, T32 GM140223 Pharmacological Sciences Training Program (S. L. H.),  the National Institute of Health (NIH) F31 1F31ES036421-01 (L.N.H.), the National Institute of Health (NIH) F31 1F31AI186432-01 (K.L.L.) We thank the United States Geological Survey (USGS) and NOAA/GLERL for providing access to environmental metabolomics datasets used in this study. 
-
