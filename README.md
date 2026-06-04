@@ -108,7 +108,7 @@ cpm ` --class-tag MC ` --files ` "C:\path_to_file\filename.mzML" ` "C:\path_to_f
 
 </details> 
 
-### Prerequisites
+## Prerequisites
 
 #%pip install pandas (2.3.3) matplotlib (3.10.8) numpy (2.2.6) seaborn (0.13.2) networkx (3.4.2) massql (2025.12.10) openpyxl (3.1.5) pyteomics (4.7.5) lxml (6.0.2) \
 need to be running also in massql_env (Python 3.13.X)
