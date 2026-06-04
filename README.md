@@ -12,7 +12,7 @@ This project provides a comprehensive analytical workflow for analyzing LC-MS/MS
 <summary> Click to expand for information on how to set up CPM!</summary>
 
 
-##**Open terminal**
+## **Open terminal**
 ## Install micromamba once
 cd ~ \
 curl -Ls https://micro.mamba.pm/install.sh | bash \
