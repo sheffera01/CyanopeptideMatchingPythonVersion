@@ -10,7 +10,7 @@ This project provides a comprehensive analytical workflow for analyzing LC-MS/MS
 # **Getting Started**
 # **Linux/macOS**
 <details>
-<summary> Click to expand for information on how to set CPM up</summary>
+<summary> Click to expand for information on how to set up CPM!</summary>
 
 Open terminal
 ## Install micromamba once
@@ -63,7 +63,7 @@ cpm \
 
 # **PC**
 <details>
-<summary>Click to expand for information on how to set CPM up</summary>
+<summary>Click to expand for information on how to set up CPM!</summary>
 Open PowerShell
 ## Install micromamba once
 1. cd $HOME
