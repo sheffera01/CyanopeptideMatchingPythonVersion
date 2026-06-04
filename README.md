@@ -66,7 +66,7 @@ cpm \
 <summary>Click to expand for information on how to set up CPM!</summary>
 
 
-##**Open terminal**
+## **Open PowerShell**
 ## Install micromamba once
 1. cd $HOME
 2. Invoke-WebRequest -Uri https://micro.mamba.pm/api/micromamba/win-64/latest -OutFile micromamba.tar.bz2
