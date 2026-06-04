@@ -115,23 +115,29 @@ need to be running also in massql_env (Python 3.13.X)
 
 ## Areas for users to edit specific parameters
 Adding to ion search lists 
-*    cpm.py --> edit Ion Lists **AND** Ion label dictionary \
+*    cpm.py --> edit Ion Lists **AND** Ion label dictionary 
+
 Blank Ratio Threshold
-*     cpm.py --> blank_ratio_threshold \
+*     cpm.py --> blank_ratio_threshold 
+
 Tolerance matching to CyanoMetDB
 *    cyanometdb_match.py --> edit tol_da: float = __ **AND**
-*    cpm.py --> edit tol_da: float = 0.05, \
+*    cpm.py --> edit tol_da: float = 0.05, 
+
 Number of Diagnostic Product Ions Needed for matches
-*    cyanometdb_match.py --> "n_diagnostic"] >= 2 \
+*    cyanometdb_match.py --> "n_diagnostic"] >= 2 
+
 Adduct additions
-*    adduct_finder.py --> add into default_deltas \
+*    adduct_finder.py --> add into default_deltas 
+
 Adjusting merged summary
-*    summary_builder.py --> merge_tol_mz and merge_tol_rt edit \
+*    summary_builder.py --> merge_tol_mz and merge_tol_rt edit 
+
 MS1 AUC
-*    summary_builder.py --> tol_mz and rt_pad edit \
+*    summary_builder.py --> tol_mz and rt_pad edit 
+
 MS/MS diagnostic ion tolerance fragment
 *    massql_utils.py --> tol_mz 
-
   
 ## Acknowledgements 
 
