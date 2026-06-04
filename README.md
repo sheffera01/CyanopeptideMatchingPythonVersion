@@ -41,13 +41,20 @@ git+https://github.com/sheffera01/CyanopeptideMatchingPythonVersion.git@package
 
 # To run: 
 cpm \
-  --class-tag MC \ #can do MC MP AB AR MG or ALL \
-  --files /path_to_file/filename.mzML \ #path to files \
+  --class-tag MC \ \
+  --files /path_to_file/filename.mzML \ \
           /path_to_file/filename2.mzML \ \
-  --metadata /path_to__metadata/metadata.csv \ #path to metadata  \
-  --output-root /path_to_result_output/results \ #path to output folder \
-  --blank-filter \ #remove if not needed \
-  --batch-correct #remove if not needed \
+  --metadata /path_to__metadata/metadata.csv \ \
+  --output-root /path_to_result_output/results \ \
+  --blank-filter \ \
+  --batch-correct \
+  
+Use cpm --help for usage informnation
+
+# Options:
+--class tag: MC, AP, AB, AR, MG, or ALL \
+--blank-filter: optional. Remove if not needed \
+--batch-correct: optional. Remove if not needed. 
 
 #--------------------------------------------------------------------------------------------------
 ## PC
@@ -84,11 +91,14 @@ pip install --no-cache-dir --force-reinstall "git+https://github.com/sheffera01/
 
 #-----------------------------------------------------------------------------------------------
 # To run: 
-cpm ` --class-tag MC ` --files ` "C:\path_to_file\filename.mzML" ` "C:\path_to_file\filename2.mzML" ` --metadata "C:\path_to_metadata\metadata.csv" ` --output-root "C:\path_to_output\results" ` --blank-filter ` --batch-correct
+cpm ` --class-tag MC ` --files ` "C:\path_to_file\filename.mzML" ` "C:\path_to_file\filename2.mzML" ` --metadata "C:\path_to_metadata\metadata.csv" ` --output-root "C:\path_to_output\results" ` --blank-filter ` --batch-correct \
+
+Use cpm --help for usage informnation
+
 # Options:
---class tag: MC, AP, AB, AR, MG, or ALL
---blank-filter: optional. Remove if not needed
---batch-correct: optional. Remove if not needed. 
+--class tag: MC, AP, AB, AR, MG, or ALL \
+--blank-filter: optional. Remove if not needed \
+--batch-correct: optional. Remove if not needed. \
 #-----------------------------------------------------------------------------------------------
 ### Prerequisites
 
