@@ -52,7 +52,7 @@ cpm \
   --blank-filter \ \
   --batch-correct \
 
-**Use cpm --help for usage informnation**
+**Use cpm --help for usage information**
 
 ## Options:
 --class tag: MC, AP, AB, AR, MG, or ALL \
