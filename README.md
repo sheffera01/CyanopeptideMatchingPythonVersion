@@ -56,7 +56,7 @@ Open PowerShell
 cd $HOME \
 Invoke-WebRequest -Uri https://micro.mamba.pm/api/micromamba/win-64/latest -OutFile micromamba.tar.bz2 \
 tar xf micromamba.tar.bz2 \
-.\Library\bin\micromamba.exe shell init -s powershell -r "$HOME\micromamba" \
+.\Library\bin\micromamba.exe shell init -s powershell -r "$HOME\micromamba"
 
 Close PowerShell and reopen it. 
 # Create environment
