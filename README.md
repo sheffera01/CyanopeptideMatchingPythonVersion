@@ -113,17 +113,26 @@ cpm ` --class-tag MC ` --files ` "C:\path_to_file\filename.mzML" ` "C:\path_to_f
 #%pip install pandas (2.3.3) matplotlib (3.10.8) numpy (2.2.6) seaborn (0.13.2) networkx (3.4.2) massql (2025.12.10) openpyxl (3.1.5) pyteomics (4.7.5) lxml (6.0.2) \
 need to be running also in massql_env (Python 3.13.X)
 
-#-----------------------------------------------------------------------------------------------
 ## Areas for users to edit specific parameters
-Adding to ion search lists (cpm.py --> edit Ion Lists AND Ion label dictionary) \
-Blank Ratio Threshold (cpm.py --> blank_ratio_threshold) \
-Tolerance matching to CyanoMetDB (cyanometdb_match.py --> edit tol_da: float = __; cpm.py --> edit tol_da: float = 0.05,) \
-Number of Diagnostic Product Ions Needed for matches (cyanometdb_match.py --> "n_diagnostic"] >= 2) \
-Adduct additions (adduct_finder.py --> add into default_deltas) \
-Adjusting merged summary (summary_builder.py --> merge_tol_mz and merge_tol_rt edit) \
-MS1 AUC (summary_builder.py --> tol_mz and rt_pad edit) \
-MS/MS diagnostic ion tolerance fragment (massql_utils.py --> tol_mz) \
-#-----------------------------------------------------------------------------------------------
+Adding to ion search lists 
+*    cpm.py --> edit Ion Lists **AND** Ion label dictionary \
+Blank Ratio Threshold
+*     cpm.py --> blank_ratio_threshold \
+Tolerance matching to CyanoMetDB
+*    cyanometdb_match.py --> edit tol_da: float = __ **AND**
+*    cpm.py --> edit tol_da: float = 0.05, \
+Number of Diagnostic Product Ions Needed for matches
+*    cyanometdb_match.py --> "n_diagnostic"] >= 2 \
+Adduct additions
+*    adduct_finder.py --> add into default_deltas \
+Adjusting merged summary
+*    summary_builder.py --> merge_tol_mz and merge_tol_rt edit \
+MS1 AUC
+*    summary_builder.py --> tol_mz and rt_pad edit \
+MS/MS diagnostic ion tolerance fragment
+*    massql_utils.py --> tol_mz 
+
+  
 ## Acknowledgements 
 
 *    We are grateful for support from the National Institute of Environmental Health Sciences (NIEHS) of the NIH under award numbers 5P01ES028939-02 and R21ES033758 (M.J.B.) and the National Science Foundation (NSF) under award number OCE-1840715, T32 GM140223 Pharmacological Sciences Training Program (S. L. H.),  the National Institute of Health (NIH) F31 1F31ES036421-01 (L.N.H.), the National Institute of Health (NIH) F31 1F31AI186432-01 (K.L.L.) We thank the United States Geological Survey (USGS) and NOAA/GLERL for providing access to environmental metabolomics datasets used in this study. 
