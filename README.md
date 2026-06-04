@@ -48,15 +48,15 @@ cpm \
   --output-root /path_to_result_output/results \ #path to output folder \
   --blank-filter \ #remove if not needed \
   --batch-correct #remove if not needed \
-  
+
 #--------------------------------------------------------------------------------------------------
 ## PC
 Open PowerShell
 # Install micromamba once
-cd $HOME \
-Invoke-WebRequest -Uri https://micro.mamba.pm/api/micromamba/win-64/latest -OutFile micromamba.tar.bz2 \
-tar xf micromamba.tar.bz2 \
-.\Library\bin\micromamba.exe shell init -s powershell -r "$HOME\micromamba"
+1. cd $HOME
+2. Invoke-WebRequest -Uri https://micro.mamba.pm/api/micromamba/win-64/latest -OutFile micromamba.tar.bz2
+3. tar xf micromamba.tar.bz2
+4. .\Library\bin\micromamba.exe shell init -s powershell -r "$HOME\micromamba" 
 
 Close PowerShell and reopen it. 
 # Create environment
