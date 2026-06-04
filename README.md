@@ -5,41 +5,44 @@ This project provides a comprehensive analytical workflow for analyzing LC-MS/MS
 *   Technologies used 
         *   Proteowizard (converting raw mass spectrometry files to .mzML)
         *   Python (Python 3.13)
-*   Set up for both Linux/macOS and PC are listed below:
 
-# Getting Started 
-## Linux/macOS
+#-----------------------------------------------------------------------------------------------
+# **Getting Started**
+## **Linux/macOS**
+<details>
+<summary> Click to expand</summary>
+
 Open terminal
-# Install micromamba once
+## Install micromamba once
 cd ~ \
 curl -Ls https://micro.mamba.pm/install.sh | bash \
 source ~/.bashrc
 
-# Create environment
+## Create environment
 micromamba create -n cpm python=3.13 pip -c conda-forge -y
 
-# Activate it
+## Activate it
 micromamba activate cpm
 
-# Check Python version (should be 3.13.x)
+## Check Python version (should be 3.13.x)
 python --version
 
-# Upgrade install tools
+## Upgrade install tools
 pip install --upgrade pip setuptools wheel
 
-# Install CPM package
+## Install CPM package
 pip install --no-cache-dir --force-reinstall \
 git+https://github.com/sheffera01/CyanopeptideMatchingPythonVersion.git@package
 
-# For Future Logins
+## For Future Logins
 source ~/.bashrc \
 micromamba activate cpm
 
-# For newest version pulling from GitHub:
+## For newest version pulling from GitHub:
 pip install --no-cache-dir --force-reinstall \
 git+https://github.com/sheffera01/CyanopeptideMatchingPythonVersion.git@package
 
-# To run: 
+## To run: 
 cpm \
   --class-tag MC \ \
   --files /path_to_file/filename.mzML \ \
@@ -48,58 +51,63 @@ cpm \
   --output-root /path_to_result_output/results \ \
   --blank-filter \ \
   --batch-correct \
-  
-Use cpm --help for usage informnation
 
-# Options:
+**Use cpm --help for usage informnation**
+
+## Options:
 --class tag: MC, AP, AB, AR, MG, or ALL \
 --blank-filter: optional. Remove if not needed \
 --batch-correct: optional. Remove if not needed. 
 
-#--------------------------------------------------------------------------------------------------
-## PC
+</details> 
+
+# **PC**
+<details>
+<summary>Click to expand</summary>
 Open PowerShell
-# Install micromamba once
+## Install micromamba once
 1. cd $HOME
 2. Invoke-WebRequest -Uri https://micro.mamba.pm/api/micromamba/win-64/latest -OutFile micromamba.tar.bz2
 3. tar xf micromamba.tar.bz2
 4. .\Library\bin\micromamba.exe shell init -s powershell -r "$HOME\micromamba" 
 
 Close PowerShell and reopen it. 
-# Create environment
+## Create environment
 micromamba create -n cpm python=3.13 pip -c conda-forge -y
 
-# Activate it
+## Activate it
 micromamba activate cpm
 
-# Check Python version (should be 3.13.x)
+## Check Python version (should be 3.13.x)
 python --version
 
-# Upgrade install tools
+## Upgrade install tools
 pip install --upgrade pip setuptools wheel
 
-# Install CPM package
+## Install CPM package
 pip install --no-cache-dir --force-reinstall "git+https://github.com/sheffera01/CyanopeptideMatchingPythonVersion.git@package"
 
 #-----------------------------------------------------------------------------------------------
-# For Future Logins
+## For Future Logins
 Open PowerShell and run:
 micromamba activate cpm
 
-# For newest version pulling from GitHub:
+## For newest version pulling from GitHub:
 pip install --no-cache-dir --force-reinstall "git+https://github.com/sheffera01/CyanopeptideMatchingPythonVersion.git@package"
 
 #-----------------------------------------------------------------------------------------------
-# To run: 
+## To run: 
 cpm ` --class-tag MC ` --files ` "C:\path_to_file\filename.mzML" ` "C:\path_to_file\filename2.mzML" ` --metadata "C:\path_to_metadata\metadata.csv" ` --output-root "C:\path_to_output\results" ` --blank-filter ` --batch-correct \
 
-Use cpm --help for usage informnation
+**Use cpm --help for usage information**
 
-# Options:
+## Options:
 --class tag: MC, AP, AB, AR, MG, or ALL \
 --blank-filter: optional. Remove if not needed \
 --batch-correct: optional. Remove if not needed. \
-#-----------------------------------------------------------------------------------------------
+
+</details> 
+
 ### Prerequisites
 
 #%pip install pandas (2.3.3) matplotlib (3.10.8) numpy (2.2.6) seaborn (0.13.2) networkx (3.4.2) massql (2025.12.10) openpyxl (3.1.5) pyteomics (4.7.5) lxml (6.0.2) \
