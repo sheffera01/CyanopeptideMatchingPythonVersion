@@ -118,7 +118,7 @@ Adding to ion search lists
 *    cpm.py --> edit Ion Lists **AND** Ion label dictionary 
 
 Blank Ratio Threshold
-*     cpm.py --> blank_ratio_threshold 
+*    cpm.py --> blank_ratio_threshold 
 
 Tolerance matching to CyanoMetDB
 *    cyanometdb_match.py --> edit tol_da: float = __ **AND**
