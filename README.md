@@ -8,7 +8,6 @@ This project provides a comprehensive analytical workflow for analyzing LC-MS/MS
 
 #-----------------------------------------------------------------------------------------------
 ## Getting Started 
-#-----------------------------------------------------------------------------------------------
 # Linux/macOS
 # Install micromamba once
 cd ~ \
