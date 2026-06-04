@@ -7,8 +7,8 @@ This project provides a comprehensive analytical workflow for analyzing LC-MS/MS
         *   Python (Python 3.13)
 
 #-----------------------------------------------------------------------------------------------
-## Getting Started 
-# Linux/macOS
+# Getting Started 
+## Linux/macOS
 # Install micromamba once
 cd ~ \
 curl -Ls https://micro.mamba.pm/install.sh | bash \
