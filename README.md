@@ -50,7 +50,7 @@ cpm \
   --metadata /path_to__metadata/metadata.csv \ \
   --output-root /path_to_result_output/results \ \
   --blank-filter \ \
-  --batch-correct \
+  --batch-correct
 
 **Use cpm --help for usage information**
 
