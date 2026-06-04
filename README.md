@@ -6,7 +6,6 @@ This project provides a comprehensive analytical workflow for analyzing LC-MS/MS
         *   Proteowizard (converting raw mass spectrometry files to .mzML)
         *   Python (Python 3.13)
 
-#-----------------------------------------------------------------------------------------------
 # **Getting Started**
 # **Linux/macOS**
 <details>
