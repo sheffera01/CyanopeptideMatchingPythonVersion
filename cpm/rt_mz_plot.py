@@ -7,11 +7,17 @@ import matplotlib.patches as mpatches
 
 
 def make_cmap(base_hue: float):
-    """Return a list of colors for a given base hue (0–1)."""
+    """Return darker shades for a given base hue (0–1)."""
     def cmap(levels):
         return [
-            mcolors.to_hex(colorsys.hls_to_rgb(base_hue, 0.3 + 0.6*l, 0.8))
-            for l in levels
+            mcolors.to_hex(
+                colorsys.hls_to_rgb(
+                    base_hue,
+                    0.20 + 0.30 * float(level),  # darker lightness
+                    0.85                         # saturation
+                )
+            )
+            for level in levels
         ]
     return cmap
 
@@ -33,7 +39,7 @@ def plot_precursor_rt(df, ion_to_label=None, ax=None, save=False, out_dir=".", s
         for ion, color in zip(ions, colors):
             sub = sf[sf["ion"] == ion]
             label = f"{ion_to_label.get(float(ion), ion) if ion_to_label else ion} — {os.path.basename(str(src))}"
-            ax.scatter(sub["rt"], sub["precmz"], s=20, alpha=0.6,
+            ax.scatter(sub["rt"], sub["precmz"], s=20, alpha=0.95,
                        marker=markers[i % len(markers)], color=color, label=label)
     ax.set_xlabel("Retention time (min)")
     ax.set_ylabel("Precursor m/z")
@@ -71,7 +77,7 @@ def plot_per_file_legend(df, save=False, out_dir="."):
         colors = cmap(np.linspace(0,1,len(unique_ions)))
         for ion, color in zip(unique_ions, colors):
             sub = sub_file[sub_file["ion"] == ion]
-            plt.scatter(sub["rt"], sub["precmz"], s=20, alpha=0.6,
+            plt.scatter(sub["rt"], sub["precmz"], s=20, alpha=0.95,
                         marker=markers[i % len(markers)], color=color)
         mid_color = cmap([0.5])[0]
         patch = mpatches.Patch(color=mid_color, label=os.path.basename(src))
