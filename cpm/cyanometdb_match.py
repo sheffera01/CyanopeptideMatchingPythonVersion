@@ -344,7 +344,7 @@ def plot_matched_tiles(
         print("No file provenance found after grouping — nothing to color by.")
         return None
 
-    cmap = cm.get_cmap(base_cmap, max(len(all_files), 2))
+    cmap = plt.get_cmap(base_cmap, max(len(all_files), 2))
     file_to_color = {f: cmap(i) for i, f in enumerate(all_files)}
 
     fig, ax = plt.subplots(figsize=(12, 0.5 * len(grouped) + 2))
