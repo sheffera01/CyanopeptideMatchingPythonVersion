@@ -1,0 +1,8 @@
+filename,sample_type,batch
+sample_01.mzML,sample,1
+sample_02.mzML,sample,1
+sample_03.mzML,sample,1
+blank_01.mzML,blank,1
+sample_04.mzML,sample,2
+sample_05.mzML,sample,2
+blank_02.mzML,blank,2
